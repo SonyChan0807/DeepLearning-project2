@@ -1,12 +1,12 @@
 
 import torch
-import math
 import os
 import sys
 
 cwd = os.getcwd()
 sys.path.append(cwd)
 from miniNN import Sequential, Linear, MSELoss, Relu, Tanh
+from helper import data_generator
 
 
 def train_model(model, train_input, train_target, test_input, test_target, nb_epochs, lr, mini_batch_size):
@@ -50,24 +50,6 @@ def compute_nb_errors(model, data_input, data_target, mini_batch_size ):
     return nb_data_errors
 
 
-def split_data(input, target, ratio=0.8):
-    split_idx = int(input.size(0) * ratio)
-    end_idx = input.size(0) + 1
-    return input[0:split_idx,], target[0:split_idx,], input[split_idx:end_idx, ], target[split_idx:end_idx, ]
-
-
-def data_generator(ratio=0.8, std=False):
-    data = torch.FloatTensor(1000, 2).uniform_(0, 1) - 0.5
-    distance = torch.sqrt(torch.pow(data[:, 0], 2) + torch.pow(data[:, 1], 2)).view(-1, 1)
-    radius = 1 / math.sqrt(2 * math.pi)
-    inside = distance.clone().apply_(lambda x: 1 if x < radius else -1)
-    outside = distance.clone().apply_(lambda x: 1 if x > radius else -1)
-    target = torch.cat((inside, outside), 1)
-    if std:
-        data = (data - data.mean()) / data.std()
-
-    return split_data(data, target, ratio)
-
 
 if __name__ == "__main__":
 
@@ -81,7 +63,7 @@ if __name__ == "__main__":
     model = Sequential(modules)
 
     # Split data into train set and test set
-    train_input, train_target, test_input, test_target = data_generator(ratio=0.8, std=True)
+    train_input, train_target, test_input, test_target = data_generator(ratio=0.8, normalized=True)
 
     # Train model
     train_errors_list, test_errors_list = train_model(model, train_input, train_target, test_input,
