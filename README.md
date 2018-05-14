@@ -64,6 +64,6 @@ Go to the DeepLearning-project2 directory and run
 `$ mprof run --include-children performance_test/mnist_miniNN.py` and `*.dat` file will generated in the folder.
 
 ## Plot the result
-`$ mprof plot *.dat`
-
+ Run `$ mprof plot *.dat` in the same directory
+### The example of the plot 
 ![Alt text](https://github.com/SonyChan0807/DeepLearning-project2/blob/save_images/img/miniNN-minst.png)
