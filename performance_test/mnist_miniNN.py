@@ -5,13 +5,14 @@ import sys
 cwd = os.getcwd()
 sys.path.append(cwd)
 from miniNN import Sequential, Linear, Relu, Tanh
-import dlc_practical_prologue as prologue
-from helper import train_model_test
+from performance_test import dlc_practical_prologue as prologue
+from performance_test.test_helper import train_model_test
+
 
 # Setting up hyper parameters
-lr = 1e-2
+lr = 1e-1
 mini_batch_size = 200
-nb_epochs = 250
+nb_epochs = 500
 
 # Define Network
 modules = [Linear(784, 100), Relu(), Linear(100, 100), Relu(), Linear(100, 100), Relu(), Linear(100, 10), Tanh()]

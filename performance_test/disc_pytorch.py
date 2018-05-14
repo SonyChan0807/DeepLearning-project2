@@ -1,30 +1,35 @@
 
+import os
+import sys
+cwd = os.getcwd()
+sys.path.append(cwd)
+
 from torch.autograd import Variable
 from torch import nn
-import dlc_practical_prologue as prologue
-from helper import train_model_test
+from helper import data_generator
+from performance_test.test_helper import train_model_test
+
 
 # Setting up hyper parameters
-lr = 1e-1
+lr = 1e-2
 mini_batch_size = 200
-nb_epochs = 500
+nb_epochs = 250
 
 # Split data into train set and test set
-train_input, train_target, test_input, test_target = prologue.load_data(one_hot_labels=True,
-                                                                        normalize=True)
+train_input, train_target, test_input, test_target = data_generator(ratio=0.8, normalized=True)
 
 train_input, train_target = Variable(train_input), Variable(train_target)
 test_input, test_target = Variable(test_input), Variable(test_target)
 
 # Define Network
 model = nn.Sequential(
-    nn.Linear(784, 100),
+    nn.Linear(2, 25),
     nn.ReLU(),
-    nn.Linear(100, 100),
+    nn.Linear(25, 25),
     nn.ReLU(),
-    nn.Linear(100, 100),
+    nn.Linear(25, 25),
     nn.ReLU(),
-    nn.Linear(100, 10),
+    nn.Linear(25, 2),
     nn.Tanh()
 )
 

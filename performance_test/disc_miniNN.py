@@ -1,11 +1,12 @@
-import torch
+
 import os
 import sys
 
 cwd = os.getcwd()
 sys.path.append(cwd)
 from miniNN import Sequential, Linear, MSELoss, Relu, Tanh
-from helper import data_generator, train_model_test
+from helper import data_generator
+from performance_test.test_helper import  train_model_test
 
 # Setting up hyper parameters
 lr = 1e-2
