@@ -66,3 +66,5 @@ Go to the DeepLearning-project2 directory and run
 ## Plot the result
 `$ mprof plot *.dat`
 
+The example of the plot 
+![alt text]
