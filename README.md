@@ -66,3 +66,4 @@ Go to the DeepLearning-project2 directory and run
 ## Plot the result
 `$ mprof plot *.dat`
 
+![Alt text](https://github.com/SonyChan0807/DeepLearning-project2/blob/save_images/img/miniNN-minst.png)
