@@ -24,7 +24,7 @@ class Linear(Module):
     def forward(self, x):
         """Forward pass for full connected layer
 
-        :math `s = x \cdot x^T + b `
+        :math `s = x \cdot w^T + b `
 
         :param x: input Tensor
 
@@ -45,6 +45,7 @@ class Linear(Module):
             \nabla_{b^{(l)}}  \ell  =  \nabla_{s^{(l)}}  \ell
          `
         :param dz: the gradient output from activation function
+        
         :return: The derivatives of the loss wrt input x
         """
         dx = dz.matmul(self.w)
