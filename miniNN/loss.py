@@ -18,12 +18,30 @@ class MSELoss(Loss):
         super()
 
     def forward(self, x, t):
+        """Forward pass for MSE loss
+         Compute mean squared error
+
+        :math: ` \frac{1}{n} \Sigma {(X - T)^2}`
+
+        :param x: Output tensor from neural network
+        :param t: Data label
+
+        :return: value of Mean-squared Loss
+        """
         self.t = t.clone()
         self.x = x.clone()
-        self.output = (self.x - self.t).pow(2).mean()
+        output = (self.x - self.t).pow(2).mean()
 
-        return self.output
+        return output
 
     def backward(self):
+        """Backward pass for MSE loss
+        Compute the derivatives of the loss wrt input x
+
+        :math: ` \frac{1}{n} {(X - T)}`
+
+        :return: The derivatives of the loss wrt input x
+        """
+
         dloss = (self.x - self.t) / self.x.shape[0]
         return dloss

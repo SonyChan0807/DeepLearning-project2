@@ -1,6 +1,7 @@
 *.pyc
 __pycache__
-.ipynb_*
 .idea*
 *.dat
 /data
+.ipynb_checkpoints
+.DS_Store
