@@ -33,6 +33,7 @@ We implement PyTorch like modules in this project. Details can be found in the a
     |   ├── activation.py              : Containing ReLu, Tanh
     |   ├── linear.py                  : Containing Linear
     |   └──sequential.py               : Containing  Sequential 
+    |
     ├── performance_test               : Directory containing all test scripts
     |   ├── dlc_practical_prologue.py  : Utility for loading Mnist
     |   ├── disc_miniNN.py             : Script to run miniNN on Disc
@@ -40,6 +41,7 @@ We implement PyTorch like modules in this project. Details can be found in the a
     |   ├── mnist_miniNN.py            : Script to run miniNN on Mnist 
     |   ├── mnist_pytorch.py           : Script to run PyTorch on Mnist
     |   └── test_helper.py             : helper function anotated by @profile decorator 
+    |
     ├── Report.pdf                     : Report
     ├── test.py                        : Main script to test miniNN
     ├── helper.py                      : helper functions for test.py
