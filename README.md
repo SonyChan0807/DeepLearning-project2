@@ -49,10 +49,10 @@ We implement PyTorch like modules in this project. Details can be found in the a
 # Usage
 ------------
 
-#### Sample code
+## Sample code
 To run our sample code, simply `$ git clone` the repository then run `$ python test.py`. Below is an explanation of the contents of `test.py`.
 
-#### Explanation
+## Explanation
 We first import the components and loss function that we will be using. Note that the full list of available components are listed in.
 
 ```python
@@ -85,7 +85,9 @@ mini_batch_size = 200
 nb_epochs = 250
 
 # Train model
-train_model(model,criterion ,train_input, train_target, test_input, test_target, nb_epochs, learning_rate, mini_batch_size)
+train_model(model, criterion, train_input, train_target, 
+                              test_input,  test_target, 
+                              nb_epochs,   learning_rate, mini_batch_size)
 ```
 
 During training, the script outputs the training and validation XXX at each epoch. To avoid clutter, we show only the output at the final epoch.
