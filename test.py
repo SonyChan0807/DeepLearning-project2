@@ -1,5 +1,3 @@
-
-import torch
 import os
 import sys
 
@@ -9,7 +7,7 @@ from miniNN import Sequential, Linear, MSELoss, Relu, Tanh
 from helper import data_generator, train_model
 
 
-# Setting up hyper parameters
+# Setting up hyperparameters
 lr = 1e-2
 mini_batch_size = 200
 nb_epochs = 250
@@ -19,7 +17,7 @@ modules = [Linear(2, 25), Relu(), Linear(25, 25), Relu(), Linear(25, 25), Relu()
 model = Sequential(modules)
 criterion = MSELoss()
 
-# Split data into train set and test set
+# Generate train set and test set
 train_input, train_target, test_input, test_target = data_generator(ratio=0.8, normalized=True)
 
 # Train model
