@@ -4,6 +4,10 @@ from torch import Tensor
 
 
 class Loss(object):
+    """Abstract class of loss function
+    Every new loss function inherits Loss should implement forward and backward.
+
+    """
 
     def forward(self, x, t):
         raise NotImplementedError
