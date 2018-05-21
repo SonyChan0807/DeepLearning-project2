@@ -74,7 +74,7 @@ We then specify the objective that the model will try to minimize. Here it is th
 criterion = MSELoss()
 ```
 
-The model can then be trained by passing the relevant arguments into `train_model`. The `data_generator` used here simply creates a training and a test set of 1000 points sampled uniformly in [0, 1]2, each with a label 0 if outside the disk of radius ![](http://latex.codecogs.com/gif.latex?%5Cfrac%7B1%7D%7B%20%5Csqrt%7B2%5Cpi%7D%20%7D) ,
+The model can then be trained by passing the relevant arguments into `train_model`. The `data_generator` used here simply creates a training and a test set of 1000 points sampled uniformly in ![](http://latex.codecogs.com/gif.latex?%5B0%2C1%5D%5E2), each with a label 0 if outside the disk of radius ![](http://latex.codecogs.com/gif.latex?%5Cfrac%7B1%7D%7B%20%5Csqrt%7B2%5Cpi%7D%20%7D) and 1 inside.
 
 ```python
 # Generate train set and test set
@@ -90,10 +90,6 @@ train_model(model, criterion, train_input, train_target,
                               test_input,  test_target, 
                               nb_epochs,   learning_rate, mini_batch_size)
 ```
-
-During training, the script outputs the training and validation XXX at each epoch. To avoid clutter, we show only the output at the final epoch.
-
-`Insert output here`
 
 Once the model is trained, classification can simply be done by calling the `forward` method of the model object.
 
