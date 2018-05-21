@@ -74,7 +74,7 @@ We then specify the objective that the model will try to minimize. Here it is th
 criterion = MSELoss()
 ```
 
-Then by passing the relevant arguments into `train_model`. The `data_generator` used here simply creates 
+The model can then be trained by passing the relevant arguments into `train_model`. The `data_generator` used here simply creates a training and a test set of 1000 points sampled uniformly in [0, 1]2, each with a label 0 if outside the disk of radius ![](http://latex.codecogs.com/gif.latex?%5Cfrac%7B1%7D%7B%20%5Csqrt%7B2%5Cpi%7D%20%7D) ,
 
 ```python
 # Generate train set and test set
